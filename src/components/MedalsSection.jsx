@@ -6,20 +6,19 @@ import { Award, Trophy } from "lucide-react";
 const AWARDS = [
   {
     id: 1,
-    title: "Best Innovation Award 2024",
-    organization: "Your Organization",
-    date: "2024",
-    description:
-      "Recognized for outstanding innovation in AI-driven automation workflows",
+    title: "Budding Rockstar",
+    organization: "SLK Software",
+    date: "2023",
+    description: "Recognized for budding rockstar",
     icon: Trophy,
     image:
       "https://images.pexels.com/photos/6120392/pexels-photo-6120392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
     id: 2,
-    title: "Excellence in Software Engineering",
-    organization: "Tech Community",
-    date: "2023",
+    title: "Shining Star",
+    organization: "SLK SOftware",
+    date: "2024",
     description:
       "Awarded for exceptional contributions to full-stack development",
     icon: Award,
@@ -28,10 +27,10 @@ const AWARDS = [
   },
   {
     id: 3,
-    title: "N8N Workflow Competition Winner",
-    organization: "N8N Community",
-    date: "2023",
-    description: "First place in the advanced automation workflow challenge",
+    title: "Stellar Team Awardee",
+    organization: "SLK Software",
+    date: "2025",
+    description: "First place in the team award",
     icon: Trophy,
     image:
       "https://images.pexels.com/photos/6120392/pexels-photo-6120392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",

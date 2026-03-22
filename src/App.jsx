@@ -13,11 +13,11 @@ import roomImage from "@/assets/room.png";
 const HOTSPOTS = [
   {
     id: "bookshelf",
-    position: { x: 82, y: 28 },
+    position: { x: 72, y: 15 },
     label: "Courses & Certifications",
   },
-  { id: "medals", position: { x: 18, y: 28 }, label: "Awards & Recognition" },
-  { id: "laptop", position: { x: 50, y: 62 }, label: "Profile & Experience" },
+  { id: "medals", position: { x: 26, y: 15 }, label: "Awards & Recognition" },
+  { id: "laptop", position: { x: 50, y: 52 }, label: "Profile & Experience" },
 ];
 
 function App() {

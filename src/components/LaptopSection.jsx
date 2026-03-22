@@ -10,7 +10,6 @@ import {
   Phone,
   Linkedin,
   Github,
-  Twitter,
 } from "lucide-react";
 import profileImage from "@/assets/profile-photo.png";
 
@@ -20,75 +19,55 @@ const PROFILE_DATA = {
     "Software Engineer | ReactJs • React Native • Nodejs • MongoDB • FastAPI | AI Agents Automation & Workflows",
   bio: "Passionate software engineer specializing in full-stack development and AI-driven automation. Building scalable applications and intelligent workflows that solve real-world problems.",
   location: "Bengaluru",
-  email: "thejas19996@example.com",
+  email: "thejas19996@gmail.com",
   phone: "+91 82967 89262",
   image: profileImage,
   social: {
     linkedin: "https://www.linkedin.com/in/thejas-thejraj-06/",
-    github: "https://github.com/yourprofile",
-    twitter: "https://twitter.com/yourprofile", // Added to avoid undefined errors if used
+    github: "https://github.com/ThejRaj06/automation-systems",
   },
 };
 
 const EXPERIENCE = [
   {
     id: 1,
-    title: "Senior Software Engineer",
-    company: "Your Company",
+    title: "Software Engineer",
+    company: "SLK Software Pvt Ltd",
     period: "2022 - Present",
     description:
-      "Leading full-stack development initiatives, building scalable microservices, and implementing AI automation workflows.",
-    technologies: ["React", "Node.js", "MongoDB", "FastAPI", "N8N"],
-  },
-  {
-    id: 2,
-    title: "Full Stack Developer",
-    company: "Previous Company",
-    period: "2020 - 2022",
-    description:
-      "Developed and maintained multiple client-facing applications using modern web technologies.",
-    technologies: ["React Native", "Express", "PostgreSQL", "AWS"],
-  },
-  {
-    id: 3,
-    title: "Junior Developer",
-    company: "First Company",
-    period: "2018 - 2020",
-    description:
-      "Started career building responsive web applications and learning modern development practices.",
-    technologies: ["JavaScript", "React", "Node.js", "MySQL"],
+      "Full-stack development initiatives, building scalable microservices, and implementing AI automation workflows.",
+    technologies: ["React", "Node.js", "MongoDB", "FastAPI"],
   },
 ];
 
 const N8N_WORKFLOWS = [
   {
     id: 1,
-    name: "AI Customer Support Automation",
-    description:
-      "Automated customer support workflow using AI to categorize, respond, and escalate tickets intelligently.",
+    name: "AI Github PR Automator",
+    description: "Automated Github PR approver",
     image:
       "https://images.pexels.com/photos/4330787/pexels-photo-4330787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    technologies: ["N8N", "OpenAI", "Slack", "MongoDB"],
+    technologies: ["N8N", "Vector Database", "Github API", "Webhooks"],
     stats: { nodes: 24, efficiency: "85%" },
   },
   {
     id: 2,
-    name: "Multi-Platform Content Distribution",
+    name: "Telegram Phonenumber lookup automation",
     description:
-      "Workflow that automatically distributes content across multiple social media platforms with AI-powered optimization.",
+      "Workflow that automatically checks for the phone number's owner details from the rapidAPI and send sback to telegram bot",
     image:
       "https://images.unsplash.com/photo-1737505599162-d9932323a889?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG5vZGVzJTIwbmV0d29yayUyMGF1dG9tYXRpb258ZW58MHx8fHwxNzc0MTgxNTk4fDA&ixlib=rb-4.1.0&q=85",
-    technologies: ["N8N", "Twitter API", "LinkedIn API", "Facebook API"],
-    stats: { nodes: 32, efficiency: "92%" },
+    technologies: ["N8N", "RapidAPI", "Telegram bot", "N8N Data tables"],
+    stats: { nodes: 32, efficiency: "82%" },
   },
   {
     id: 3,
-    name: "Data Pipeline & Analytics Automation",
+    name: "Monthly grocery calculator with Zepto prices",
     description:
-      "Complex data extraction, transformation, and loading workflow with real-time analytics and reporting.",
+      "Calculates the monthly grocery prices from the real-time scraped data of the grocery prices from the Zepto website",
     image:
       "https://images.unsplash.com/photo-1737505599162-d9932323a889?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG5vZGVzJTIwbmV0d29yayUyMGF1dG9tYXRpb258ZW58MHx8fHwxNzc0MTgxNTk4fDA&ixlib=rb-4.1.0&q=85",
-    technologies: ["N8N", "PostgreSQL", "Redis", "Grafana"],
+    technologies: ["N8N", "Web Scraper", "Excel", "Whatsapp API"],
     stats: { nodes: 41, efficiency: "88%" },
   },
 ];

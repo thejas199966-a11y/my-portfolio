@@ -6,36 +6,25 @@ import { BookOpen, ExternalLink } from "lucide-react";
 const COURSES_CERTIFICATIONS = [
   {
     id: 1,
-    title: "Advanced React Patterns Course",
+    title: "Microsoft Azure Developer Associate (AZ-204) Exam Prep",
     type: "Course",
-    platform: "Your Platform Here",
-    completionDate: "2024",
+    platform: "Coursera",
+    completionDate: "2026",
     image:
       "https://images.pexels.com/photos/7648310/pexels-photo-7648310.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    link: "#", // Add your course link
-    description: "Advanced patterns and best practices in React development",
+    link: "https://www.coursera.org/account/accomplishments/professional-cert/certificate/NBT3AQ998OZ1",
+    description: "Microsoft Azure Developer Associate (AZ-204) Exam Prep",
   },
   {
     id: 2,
-    title: "Node.js Backend Development Certification",
+    title: "Deploy a website with Azure Virtual Machines",
     type: "Certification",
-    platform: "Your Platform Here",
-    completionDate: "2024",
+    platform: "Microsoft",
+    completionDate: "2026",
     image:
       "https://images.pexels.com/photos/7648310/pexels-photo-7648310.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    link: "#", // Add your certification link
-    description: "Comprehensive backend development with Node.js and Express",
-  },
-  {
-    id: 3,
-    title: "MongoDB Database Design",
-    type: "Course",
-    platform: "Your Platform Here",
-    completionDate: "2023",
-    image:
-      "https://images.pexels.com/photos/7648310/pexels-photo-7648310.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    link: "#", // Add your course link
-    description: "Database schema design and optimization strategies",
+    link: "https://www.coursera.org/account/accomplishments/verify/R8B7CPAZXPB6",
+    description: "Deploy a website with Azure Virtual Machines",
   },
 ];
 
