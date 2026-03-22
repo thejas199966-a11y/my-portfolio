@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./App.module.css";
 
@@ -9,21 +9,46 @@ import MedalsSection from "@/components/MedalsSection";
 import LaptopSection from "@/components/LaptopSection";
 
 import roomImage from "@/assets/room.png";
-
-const HOTSPOTS = [
-  {
-    id: "bookshelf",
-    position: { x: 72, y: 15 },
-    label: "Courses & Certifications",
-  },
-  { id: "medals", position: { x: 26, y: 15 }, label: "Awards & Recognition" },
-  { id: "laptop", position: { x: 50, y: 52 }, label: "Profile & Experience" },
-];
+import roomImagePhone from "@/assets/room-phone.png";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIfMobile();
+
+    // Listen for screen size changes (like rotating a phone)
+    window.addEventListener("resize", checkIfMobile);
+
+    // Cleanup the listener when the component unmounts
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   const [activeSection, setActiveSection] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomOrigin, setZoomOrigin] = useState({ x: 50, y: 50 });
+
+  const HOTSPOTS = [
+    {
+      id: "bookshelf",
+      position: isMobile ? { x: 72, y: 25 } : { x: 72, y: 15 },
+      label: "Courses & Certifications",
+    },
+    {
+      id: "medals",
+      position: isMobile ? { x: 20, y: 25 } : { x: 26, y: 15 },
+      label: "Awards & Recognition",
+    },
+    {
+      id: "laptop",
+      position: isMobile ? { x: 50, y: 55 } : { x: 50, y: 52 },
+      label: "Profile & Experience",
+    },
+  ];
 
   const handleHotspotClick = (hotspot) => {
     setZoomOrigin({ x: hotspot.position.x, y: hotspot.position.y });
@@ -66,7 +91,11 @@ function App() {
         style={{ transformOrigin: `${zoomOrigin.x}% ${zoomOrigin.y}%` }}
       >
         <div className={styles.shrinkWrapContainer}>
-          <img src={roomImage} alt="Room" className={styles.roomImage} />
+          <img
+            src={isMobile ? roomImagePhone : roomImage}
+            alt="Room"
+            className={styles.roomImage}
+          />
 
           <AnimatePresence>
             {!activeSection &&
