@@ -1,0 +1,43 @@
+name: React Universal Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  # -----------------------------------------------------------------
+  # JOB 1: BUILD & TEST (Updated for Legacy Peer Deps)
+  # -----------------------------------------------------------------
+  build-check:
+    name: ⚛️ Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        # UPDATED: Matches your Render build command to avoid errors
+        run: npm install --legacy-peer-deps
+
+      - name: Check Build
+        run: npm run build
+
+  # -----------------------------------------------------------------
+  # JOB 2: RENDER DEPLOY (Trigger Only)
+  # -----------------------------------------------------------------
+  deploy-render:
+    name: 🚀 Render Deploy
+    needs: build-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deploy
+        env:
+          DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        if: env.DEPLOY_HOOK != ''
+        run: curl "$DEPLOY_HOOK"
