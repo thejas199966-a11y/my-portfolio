@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Kills all native browser scrolling */
+  html,
+  body,
+  #root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden !important;
+    background-color: hsl(217 91% 2%);
+    color: hsl(210 40% 98%);
+  }
+}
+
+.heading-font {
+  font-family: "Outfit", sans-serif;
+}
+.body-font {
+  font-family: "Manrope", sans-serif;
+}
+.mono-font {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* The Glass Card UI for Modals */
+.glass-card {
+  background: rgba(10, 17, 34, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(34, 211, 238, 0.05);
+}
