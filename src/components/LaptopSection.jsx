@@ -45,15 +45,19 @@ const N8N_WORKFLOWS = [
     id: 1,
     name: "AI Github PR Automator",
     description: "Automated Github PR approver",
+    ghLink:
+      "https://github.com/ThejRaj06/automation-systems/tree/main/workflows/github-pr-reviewer",
     image:
       "https://raw.githubusercontent.com/ThejRaj06/automation-systems/refs/heads/main/workflows/github-pr-reviewer/images/pr-review-architecture.png",
     technologies: ["N8N", "Github API", "Webhooks", "javascript"],
-    stats: { nodes: 24, efficiency: "85%" },
+    stats: { nodes: 17, efficiency: "85%" },
   },
   {
     id: 2,
     name: "Github Vector Store Sync",
     description: "Automated Github HEAD Sync with vector database",
+    ghLink:
+      "https://github.com/ThejRaj06/automation-systems/tree/main/workflows/github-pr-reviewer",
     image:
       "https://raw.githubusercontent.com/ThejRaj06/automation-systems/refs/heads/main/workflows/github-pr-reviewer/images/vector-sync-architecture.png",
     technologies: [
@@ -63,23 +67,27 @@ const N8N_WORKFLOWS = [
       "Webhooks",
       "javascript",
     ],
-    stats: { nodes: 24, efficiency: "85%" },
+    stats: { nodes: 10, efficiency: "85%" },
   },
   {
     id: 3,
     name: "Telegram Phonenumber lookup automation",
     description:
       "Workflow that automatically checks for the phone number's owner details from the rapidAPI and send sback to telegram bot",
+    ghLink:
+      "https://github.com/ThejRaj06/automation-systems/tree/main/workflows/telegram-truecaller-bot",
     image:
       "https://raw.githubusercontent.com/ThejRaj06/automation-systems/refs/heads/main/workflows/telegram-truecaller-bot/images/workflow-overview.png",
     technologies: ["N8N", "RapidAPI", "Telegram bot", "N8N Data tables"],
-    stats: { nodes: 32, efficiency: "82%" },
+    stats: { nodes: 20, efficiency: "82%" },
   },
   {
     id: 4,
     name: "Monthly grocery calculator with Zepto prices",
     description:
       "Calculates the monthly grocery prices from the real-time scraped data of the grocery prices from the Zepto website",
+    ghLink:
+      "https://github.com/ThejRaj06/automation-systems/tree/main/workflows/",
     image:
       "https://images.unsplash.com/photo-1737505599162-d9932323a889?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG5vZGVzJTIwbmV0d29yayUyMGF1dG9tYXRpb258ZW58MHx8fHwxNzc0MTgxNTk4fDA&ixlib=rb-4.1.0&q=85",
     technologies: ["N8N", "Web Scraper", "Excel", "Whatsapp API"],
@@ -255,64 +263,70 @@ const LaptopSection = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-5"
           >
             {N8N_WORKFLOWS.map((workflow, index) => (
-              <motion.div
+              <a
+                href={workflow.ghLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 key={workflow.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card rounded-xl overflow-hidden group border border-white/5 hover:border-cyan-400/30 transition-colors"
               >
-                {/* Scaled down image container */}
-                <div className="relative h-32 overflow-hidden">
-                  <img
-                    src={workflow.image}
-                    alt={workflow.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-                  <div className="absolute bottom-3 left-4 right-4">
-                    <h4 className="text-base font-bold text-white heading-font">
-                      {workflow.name}
-                    </h4>
-                  </div>
-                </div>
-
-                <div className="p-4 space-y-4">
-                  <p className="text-gray-400 body-font text-xs line-clamp-2">
-                    {workflow.description}
-                  </p>
-
-                  <div className="flex gap-3">
-                    <div className="flex-1 bg-white/5 rounded-md p-2 text-center border border-white/5">
-                      <p className="text-lg font-bold text-cyan-400 heading-font">
-                        {workflow.stats.nodes}
-                      </p>
-                      <p className="text-[9px] text-gray-500 mono-font uppercase tracking-wider">
-                        Nodes
-                      </p>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="glass-card rounded-xl overflow-hidden group border border-white/5 hover:border-cyan-400/30 transition-colors h-full"
+                >
+                  {/* Scaled down image container */}
+                  <div className="relative h-32 overflow-hidden">
+                    <img
+                      src={workflow.image}
+                      alt={workflow.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+                    <div className="absolute bottom-3 left-4 right-4">
+                      <h4 className="text-base font-bold text-white heading-font">
+                        {workflow.name}
+                      </h4>
                     </div>
-                    <div className="flex-1 bg-white/5 rounded-md p-2 text-center border border-white/5">
+                  </div>
+
+                  <div className="p-4 space-y-4">
+                    <p className="text-gray-400 body-font text-xs line-clamp-2">
+                      {workflow.description}
+                    </p>
+
+                    <div className="flex gap-3">
+                      <div className="flex-1 bg-white/5 rounded-md p-2 text-center border border-white/5">
+                        <p className="text-lg font-bold text-cyan-400 heading-font">
+                          {workflow.stats.nodes}
+                        </p>
+                        <p className="text-[9px] text-gray-500 mono-font uppercase tracking-wider">
+                          Nodes
+                        </p>
+                      </div>
+                      {/* <div className="flex-1 bg-white/5 rounded-md p-2 text-center border border-white/5">
                       <p className="text-lg font-bold text-cyan-400 heading-font">
                         {workflow.stats.efficiency}
                       </p>
                       <p className="text-[9px] text-gray-500 mono-font uppercase tracking-wider">
                         Efficiency
                       </p>
+                    </div> */}
+                    </div>
+
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {workflow.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-400 text-[9px] mono-font"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
-
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {workflow.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 bg-cyan-400/10 border border-cyan-400/30 rounded text-cyan-400 text-[9px] mono-font"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </a>
             ))}
           </motion.div>
         </TabsContent>

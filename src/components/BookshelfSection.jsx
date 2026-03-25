@@ -2,6 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BookOpen, ExternalLink } from "lucide-react";
 
+const FALLBACK_IMAGE =
+  "https://images.pexels.com/photos/7648310/pexels-photo-7648310.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+
 // PLACEHOLDER: Add your courses and certifications here
 const COURSES_CERTIFICATIONS = [
   {
@@ -22,7 +25,7 @@ const COURSES_CERTIFICATIONS = [
     platform: "Microsoft",
     completionDate: "2026",
     image:
-      "https://images.pexels.com/photos/7648310/pexels-photo-7648310.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~R8B7CPAZXPB6/CERTIFICATE_LANDING_PAGE~R8B7CPAZXPB6.jpeg",
     link: "https://www.coursera.org/account/accomplishments/verify/R8B7CPAZXPB6",
     description: "Deploy a website with Azure Virtual Machines",
   },
@@ -40,54 +43,59 @@ const BookshelfSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {COURSES_CERTIFICATIONS.map((item, index) => (
-          <motion.div
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
             key={item.id}
-            data-testid={`course-card-${item.id}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ y: -8, scale: 1.02 }}
-            className="glass-card rounded-xl overflow-hidden group cursor-pointer"
           >
-            <div className="relative h-48 overflow-hidden">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute top-3 right-3">
-                <span className="bg-cyan-400/90 text-black px-3 py-1 rounded-full text-xs font-bold mono-font uppercase tracking-wider">
-                  {item.type}
-                </span>
-              </div>
-            </div>
-
-            <div className="p-6 space-y-3">
-              <h4 className="text-xl font-bold text-white heading-font">
-                {item.title}
-              </h4>
-              <p className="text-sm text-gray-400 body-font">
-                {item.description}
-              </p>
-
-              <div className="flex items-center justify-between pt-3 border-t border-white/10">
-                <div>
-                  <p className="text-xs text-cyan-400 mono-font tracking-wider uppercase">
-                    {item.platform}
-                  </p>
-                  <p className="text-xs text-gray-500">{item.completionDate}</p>
+            <motion.div
+              data-testid={`course-card-${item.id}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="glass-card rounded-xl overflow-hidden group cursor-pointer h-full"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  onError={(e) => {
+                    if (e.target.src !== FALLBACK_IMAGE) {
+                      e.target.src = FALLBACK_IMAGE;
+                    }
+                  }}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-3 right-3">
+                  <span className="bg-cyan-400/90 text-black px-3 py-1 rounded-full text-xs font-bold mono-font uppercase tracking-wider">
+                    {item.type}
+                  </span>
                 </div>
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                </a>
               </div>
-            </div>
-          </motion.div>
+
+              <div className="p-6 space-y-3">
+                <h4 className="text-xl font-bold text-white heading-font">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-gray-400 body-font">
+                  {item.description}
+                </p>
+
+                <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                  <div>
+                    <p className="text-xs text-cyan-400 mono-font tracking-wider uppercase">
+                      {item.platform}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      {item.completionDate}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </a>
         ))}
       </div>
     </div>

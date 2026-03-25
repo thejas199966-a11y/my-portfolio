@@ -111,6 +111,34 @@ function App() {
         </div>
       </motion.div>
 
+      <AnimatePresence>
+        {!activeSection && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{
+              y: { duration: 0.3 },
+              opacity: { duration: 0.3 },
+              delay: 1,
+            }}
+            className={`fixed z-50 bg-black/20 backdrop-blur-sm border border-cyan-400/30 rounded-lg shadow-xl ${
+              isMobile
+                ? "bottom-5 left-4 right-4 p-3"
+                : "bottom-20 right-10 p-4"
+            }`}
+          >
+            <p
+              className={`font-bold text-cyan-400 mono-font text-center ${
+                isMobile ? "text-xs" : "text-sm"
+              }`}
+            >
+              Click the dots to explore.
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <DetailModal
         isOpen={activeSection !== null}
         onClose={handleClose}
