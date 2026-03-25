@@ -46,22 +46,37 @@ const N8N_WORKFLOWS = [
     name: "AI Github PR Automator",
     description: "Automated Github PR approver",
     image:
-      "https://images.pexels.com/photos/4330787/pexels-photo-4330787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    technologies: ["N8N", "Vector Database", "Github API", "Webhooks"],
+      "https://raw.githubusercontent.com/ThejRaj06/automation-systems/refs/heads/main/workflows/github-pr-reviewer/images/pr-review-architecture.png",
+    technologies: ["N8N", "Github API", "Webhooks", "javascript"],
     stats: { nodes: 24, efficiency: "85%" },
   },
   {
     id: 2,
+    name: "Github Vector Store Sync",
+    description: "Automated Github HEAD Sync with vector database",
+    image:
+      "https://raw.githubusercontent.com/ThejRaj06/automation-systems/refs/heads/main/workflows/github-pr-reviewer/images/vector-sync-architecture.png",
+    technologies: [
+      "N8N",
+      "Vector Database",
+      "Github API",
+      "Webhooks",
+      "javascript",
+    ],
+    stats: { nodes: 24, efficiency: "85%" },
+  },
+  {
+    id: 3,
     name: "Telegram Phonenumber lookup automation",
     description:
       "Workflow that automatically checks for the phone number's owner details from the rapidAPI and send sback to telegram bot",
     image:
-      "https://images.unsplash.com/photo-1737505599162-d9932323a889?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG5vZGVzJTIwbmV0d29yayUyMGF1dG9tYXRpb258ZW58MHx8fHwxNzc0MTgxNTk4fDA&ixlib=rb-4.1.0&q=85",
+      "https://raw.githubusercontent.com/ThejRaj06/automation-systems/refs/heads/main/workflows/telegram-truecaller-bot/images/workflow-overview.png",
     technologies: ["N8N", "RapidAPI", "Telegram bot", "N8N Data tables"],
     stats: { nodes: 32, efficiency: "82%" },
   },
   {
-    id: 3,
+    id: 4,
     name: "Monthly grocery calculator with Zepto prices",
     description:
       "Calculates the monthly grocery prices from the real-time scraped data of the grocery prices from the Zepto website",
