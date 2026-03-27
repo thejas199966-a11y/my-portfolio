@@ -87,11 +87,11 @@ const N8N_WORKFLOWS = [
     description:
       "Calculates the monthly grocery prices from the real-time scraped data of the grocery prices from the Zepto website",
     ghLink:
-      "https://github.com/ThejRaj06/automation-systems/tree/main/workflows/",
+      "https://github.com/ThejRaj06/automation-systems/tree/main/workflows/monthly-grocery-calculator",
     image:
-      "https://images.unsplash.com/photo-1737505599162-d9932323a889?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMG5vZGVzJTIwbmV0d29yayUyMGF1dG9tYXRpb258ZW58MHx8fHwxNzc0MTgxNTk4fDA&ixlib=rb-4.1.0&q=85",
+      "https://raw.githubusercontent.com/ThejRaj06/automation-systems/refs/heads/main/workflows/monthly-grocery-calculator/images/monthly_expense_calculator.png",
     technologies: ["N8N", "Web Scraper", "Excel", "Whatsapp API"],
-    stats: { nodes: 41, efficiency: "88%" },
+    stats: { nodes: 18, efficiency: "88%" },
   },
 ];
 
