@@ -45,8 +45,13 @@ function App() {
     },
     {
       id: "laptop",
-      position: isMobile ? { x: 50, y: 55 } : { x: 50, y: 52 },
+      position: isMobile ? { x: 51.5, y: 42 } : { x: 50, y: 40 },
       label: "Profile & Experience",
+    },
+    {
+      id: "workflows",
+      position: isMobile ? { x: 51.5, y: 59 } : { x: 50, y: 59 },
+      label: "N8N Automation Workflows",
     },
   ];
 
@@ -68,7 +73,9 @@ function App() {
       case "medals":
         return <MedalsSection />;
       case "laptop":
-        return <LaptopSection />;
+        return <LaptopSection defaultTab="profile" />;
+      case "workflows":
+        return <LaptopSection defaultTab="workflows" />;
       default:
         return null;
     }
